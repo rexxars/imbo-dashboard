@@ -1,0 +1,10 @@
+<?php
+/**
+ * Format:
+ * 'instance name' => array(
+ *     'host'    => 'http://some.host/imbo',
+ *     'pubkey'  => 'somepublickeyhere',
+ *     'privkey' => 'someprivatekeyhere',
+ * )
+ */
+return array();

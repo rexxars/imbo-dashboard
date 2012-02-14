@@ -1,0 +1,35 @@
+<section class="main">
+
+    <h1>Latest images in <?php echo htmlspecialchars($this->activeInstance); ?></h1>
+
+    <ul class="thumbnails img-view" id="dump"></ul>
+
+    <div class="pagination" data-source="/images">
+        <ul>
+            <li class="prev hidden"><a href="#1" class="first">&laquo; First</a></li>
+            <li class="hidden"><a href="#" class="prev">← Previous</a></li>
+            <li class="active"><a href="#1">1</a></li>
+            <li><a href="#2">2</a></li>
+            <li><a href="#3">3</a></li>
+            <li><a href="#4">4</a></li>
+            <li><a href="#5">5</a></li>
+            <li><a href="#6">6</a></li>
+            <li><a href="#7">7</a></li>
+            <li><a href="#8">8</a></li>
+            <li><a href="#9">9</a></li>
+            <li><a href="#" class="next">Next →</a></li>
+            <li class="next"><a href="#<?php echo $this->totalPages; ?>" class="last">Last &raquo;</a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="imgViewer" class="imgView hide">
+    <h1 class="title"></h1>
+    <div class="imgHolder"></div>
+</section>
+
+<script>
+Dashboard = {
+    maxUploadSize: <?php echo $this->maxUploadSize; ?>
+};
+</script>

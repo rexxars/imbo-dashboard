@@ -1,0 +1,13 @@
+<?php
+if ($this->instance) {
+?>
+<li class="uploadWrapper">
+    <a href="#upload" class="upload">Upload</a>
+    <form action="<?php echo $this->baseUrl(urlencode($this->instance) . '/upload/'); ?>" enctype="multipart/form-data" id="uploadForm">
+        <input type="file" name="images[]" id="imgUploader" accept="image/*" size="1" multiple>
+        <input type="submit" value="Upload" class="hide">
+    </form>
+</li>
+<?php
+}
+?>

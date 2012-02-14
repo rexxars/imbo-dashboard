@@ -1,0 +1,18 @@
+body { padding-top: 60px; }
+.brand .imbo { color: #00cc00; }
+.hidden { display: none !important; }
+.sidebar .active a { font-weight: bold;}
+.navbar .nav > li > a { width: 90px; text-align: center; }
+.imgView { background: whiteSmoke; margin-bottom: 30px; padding: 1em; -webkit-border-radius: 6px; -moz-border-radius: 6px; -o-border-radius: 6px; border-radius: 6px; text-align: center; }
+.imgView .imgHolder { min-height: 100px; width: 100%; }
+.imgView .loading { background: url(../img/loading.gif) no-repeat center center; }
+.thumbnails .placeholder > a { min-width: 260px; min-height: 180px; }
+.thumbnails .placeholder img { max-width: 260px; max-height: 180px; }
+.thumbnails .placeholder progress { width: 100%; }
+
+#topbar .uploadWrapper {  position: relative; }
+#uploadForm, #uploadForm input { margin: 0; position: absolute; top: 0; z-index: 2; }
+#uploadForm { margin-top: 7px; opacity: 0; }
+#uploadForm input { width: 90px; background: #ccc; }
+#topbar .upload { z-index: 5; position: relative; }
+#dump > li { min-height: 210px; }

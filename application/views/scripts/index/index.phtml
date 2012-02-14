@@ -1,0 +1,8 @@
+<h1>Welcome to Imbo-Dashboard</h1>
+
+<?php
+if (empty($this->imboInstances)) {
+    echo '<p>Please add one or more Imbo instances to your configuration file (application/configs/instances.php).';
+} else {
+    echo '<p>Please select an Imbo instance from the menu to the left.</p>';
+}

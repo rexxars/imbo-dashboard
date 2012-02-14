@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="no">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>Dashboard - Imbo</title>
+
+    <!--[if lt IE 9]>
+    <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('/css/bootstrap.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('/css/bootstrap-responsive.min.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('/css/progress-polyfill.css'); ?>">
+    <link rel="stylesheet" href="<?php echo $this->baseUrl('/css/dashboard.css'); ?>">
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </a>
+
+            <a class="brand" href="#"><span class="imbo">Imbo</span> Dashboard</a>
+            <div class="nav-collapse">
+                <ul class="nav" id="topbar">
+                    <li><a href="<?php echo $this->baseUrl('/'); ?>">Home</a></li>
+                    <?php
+                    echo $this->partial('helpers/uploadForm.phtml', array(
+                        'instance' => $this->activeInstance
+                    ));
+                    ?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span2">
+            <div class="well">
+                <h5>Imbo instances</h5>
+                <ul>
+                    <?php
+                    foreach ($this->imboInstances as $name) {
+                        $rowClass = $name == $this->activeInstance ? ' class="active"' : '';
+                        echo '<li' . $rowClass . '><a href="' . $this->baseUrl('/' . urlencode($name) . '/') . '">' . htmlspecialchars($name) . '</a></li>';
+                    }
+                    ?>
+                </ul>
+            </div>
+        </div>
+        <div class="span10" id="content">
+
+            <?php echo $this->layout()->content; ?>
+
+        </div>
+    </div>
+
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="<?php echo $this->baseUrl('/js/libs/jquery-1.7.1.min.js'); ?>"><\/script>')</script>
+<script>window.Dashboard = window.Dashboard || {};
+jQuery.extend(window.Dashboard, {
+    baseUrl: <?php echo json_encode($this->baseUrl()); ?>,
+    instance: <?php echo json_encode(urlencode($this->activeInstance)); ?>,
+    imgUrl: <?php echo json_encode($this->imagesUrl . '/'); ?>
+});
+</script>
+<script src="<?php echo $this->baseUrl('/js/libs/jquery-bbq.js'); ?>"></script>
+<script src="<?php echo $this->baseUrl('/js/dashboard-history.js'); ?>"></script>
+<script src="<?php echo $this->baseUrl('/js/dashboard.js'); ?>"></script>
+
+</body>
+</html>
